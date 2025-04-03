@@ -1,0 +1,7 @@
+1) Initialize a git repository - 
+dell@dell-Latitude-3440:~$ mkdir GitAssignment1
+dell@dell-Latitude-3440:~$ cd GitAssignment1
+dell@dell-Latitude-3440:~/GitAssignment1$ git init
+Initialized empty Git repository in /home/dell/GitAssignment1/.git/
+
+

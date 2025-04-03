@@ -1,0 +1,246 @@
+4) Try these commands, stash, reset soft, reset hard, diff, branch -d & -D - push each branch to the remote
+
+Diff>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ git diff
+diff --git a/bio.txt b/bio.txt
+index ecee933..87de02d 100644
+--- a/bio.txt
++++ b/bio.txt
+@@ -1 +1,2 @@
+ I am Kunal
++A Software Engineer
+
+Git Reset>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bio.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+dell@dell-Latitude-3440:~/GitAssignment1$ git add .
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   bio.txt
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git reset bio.txt
+Unstaged changes after reset:
+M	bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bio.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+dell@dell-Latitude-3440:~/GitAssignment1$ 
+
+
+git log>>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bio.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+dell@dell-Latitude-3440:~/GitAssignment1$ git add .
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   bio.txt
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git reset bio.txt
+Unstaged changes after reset:
+M	bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bio.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+dell@dell-Latitude-3440:~/GitAssignment1$ 
+
+stash>>>>>>>>
+ell@dell-Latitude-3440:~/GitAssignment1$ git branch
+  branch1
+* branch2
+  master
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git stash
+Saved working directory and index state WIP on branch2: 15d0b62 Position is added
+dell@dell-Latitude-3440:~/GitAssignment1$ git checkout branch1
+Switched to branch 'branch1'
+dell@dell-Latitude-3440:~/GitAssignment1$ git branch
+* branch1
+  branch2
+  master
+dell@dell-Latitude-3440:~/GitAssignment1$ git checkout branch2
+Switched to branch 'branch2'
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git stash pop
+On branch branch2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bio.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (e7111fd742c4186c49fd5b55a7ae4e885f5f9d22)
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git add .
+dell@dell-Latitude-3440:~/GitAssignment1$ git commit -m "stash used"
+[branch2 85fb2ca] stash used
+ 1 file changed, 1 insertion(+)
+dell@dell-Latitude-3440:~/GitAssignment1$ 
+
+
+soft>>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ git logs
+git: 'logs' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+dell@dell-Latitude-3440:~/GitAssignment1$ git log
+commit 85fb2ca79f59d40013b1da9bd32f1e1730047977 (HEAD -> branch2)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 18:07:56 2025 +0530
+
+    stash used
+
+commit 15d0b6287918c8bc9aaa6ea0780d6faf3cd29055
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:28:11 2025 +0530
+
+    Position is added
+
+commit f62a62f28f29f4bcd660b0adc0dce3d5d0ba11b6
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:23:02 2025 +0530
+
+    bio.txt updated
+
+commit 3a3ce06825f6a2b25596af9b636f6eabc362b40e
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:08:21 2025 +0530
+
+    bio.txt is created
+
+commit 8ea59ed80cf31e149777f2a0faa8b99b627dfec5 (master)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 16:50:05 2025 +0530
+
+    First commit
+(END)
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git reset --soft HEAD~1
+dell@dell-Latitude-3440:~/GitAssignment1$ git log
+commit 15d0b6287918c8bc9aaa6ea0780d6faf3cd29055 (HEAD -> branch2)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:28:11 2025 +0530
+
+    Position is added
+
+commit f62a62f28f29f4bcd660b0adc0dce3d5d0ba11b6
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:23:02 2025 +0530
+
+    bio.txt updated
+
+commit 3a3ce06825f6a2b25596af9b636f6eabc362b40e
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:08:21 2025 +0530
+
+    bio.txt is created
+
+commit 8ea59ed80cf31e149777f2a0faa8b99b627dfec5 (master)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 16:50:05 2025 +0530
+
+    First commit
+
+
+hard>>>>>>>>>>>>>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+dell@dell-Latitude-3440:~/GitAssignment1$ git reset --hard HEAD~1
+HEAD is now at f62a62f bio.txt updated
+dell@dell-Latitude-3440:~/GitAssignment1$ git log
+commit f62a62f28f29f4bcd660b0adc0dce3d5d0ba11b6 (HEAD -> branch2)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:23:02 2025 +0530
+
+    bio.txt updated
+
+commit 3a3ce06825f6a2b25596af9b636f6eabc362b40e
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 17:08:21 2025 +0530
+
+    bio.txt is created
+
+commit 8ea59ed80cf31e149777f2a0faa8b99b627dfec5 (master)
+Author: KunalRathod-Josh <kunal.rathod@joshsoftware.com>
+Date:   Wed Apr 2 16:50:05 2025 +0530
+
+    First commit
+dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
+
+delete branch >>>>>>>>>
+dell@dell-Latitude-3440:~/GitAssignment1$ git branch -d branch1
+error: The branch 'branch1' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D branch1'.
+dell@dell-Latitude-3440:~/GitAssignment1$ git branch -D branch1
+Deleted branch branch1 (was 5760183).
+dell@dell-Latitude-3440:~/GitAssignment1$ 
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git branch
+* branch2
+  master
+dell@dell-Latitude-3440:~/GitAssignment1$ git status
+On branch branch2
+nothing to commit, working tree clean
+dell@dell-Latitude-3440:~/GitAssignment1$ git checkout master
+Switched to branch 'master'
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git pull origin main
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 869 bytes | 869.00 KiB/s, done.
+From https://github.com/KunalRathod-Josh/GitAssignment1
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git merge branch2
+Updating 8ea59ed..f62a62f
+Fast-forward
+ bio.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 bio.txt
+
+dell@dell-Latitude-3440:~/GitAssignment1$ git push origin master
+Username for 'https://github.com': KunalRathod-Josh
+Password for 'https://KunalRathod-Josh@github.com': 
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (9/9), 798 bytes | 798.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/KunalRathod-Josh/GitAssignment1/pull/new/master
+remote: 
+To https://github.com/KunalRathod-Josh/GitAssignment1.git
+ * [new branch]      master -> master
+
+
