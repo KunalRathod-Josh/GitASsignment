@@ -1,74 +1,3 @@
-1) Initialize a git repository - 
-dell@dell-Latitude-3440:~$ mkdir GitAssignment1
-dell@dell-Latitude-3440:~$ cd GitAssignment1
-dell@dell-Latitude-3440:~/GitAssignment1$ git init
-Initialized empty Git repository in /home/dell/GitAssignment1/.git/
-
-2) Create at least 2 feature branches from the main branch (Add multiple files)  - 
-3) Add commits on each feature branch.
-
-dell@dell-Latitude-3440:~/GitAssignment1$ echo "# Git Assignment" > README.md
-dell@dell-Latitude-3440:~/GitAssignment1$ git add README.md
-dell@dell-Latitude-3440:~/GitAssignment1$ git commit -m "First commit"
-Author identity unknown
-
-*** Please tell me who you are.
-
-Run
-
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
-
-to set your account's default identity.
-Omit --global to set the identity only in this repository.
-
-dell@dell-Latitude-3440:~/GitAssignment1$ git branch
-* master
-
-A>>>
-
-dell@dell-Latitude-3440:~/GitAssignment1$ git branch branch1
-dell@dell-Latitude-3440:~/GitAssignment1$ git branch
-  branch1
-* master
-dell@dell-Latitude-3440:~/GitAssignment1$ git checkout branch1
-Switched to branch 'branch1'
-
-dell@dell-Latitude-3440:~/GitAssignment1$ vi myfile.txt
-dell@dell-Latitude-3440:~/GitAssignment1$ vi myfile.txt
-dell@dell-Latitude-3440:~/GitAssignment1$ git status
-On branch branch1
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	myfile.txt
-
-nothing added to commit but untracked files present (use "git add" to track)
-dell@dell-Latitude-3440:~/GitAssignment1$ git add .
-dell@dell-Latitude-3440:~/GitAssignment1$ git commit -m "myfile.text is created"
-[branch1 5760183] myfile.text is created
- 1 file changed, 1 insertion(+)
- create mode 100644 myfile.txt
-
-dell@dell-Latitude-3440:~/GitAssignment1$ git checkout  master
-Switched to branch 'master'
-
-B>>> 
-
-dell@dell-Latitude-3440:~/GitAssignment1$ git checkout -b branch2
-Switched to a new branch 'branch2'
-dell@dell-Latitude-3440:~/GitAssignment1$ vi bio.txt
-dell@dell-Latitude-3440:~/GitAssignment1$ git add .
-dell@dell-Latitude-3440:~/GitAssignment1$ git status
-On branch branch2
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	new file:   bio.txt
-
-dell@dell-Latitude-3440:~/GitAssignment1$ git commit -m "bio.txt is created"
-[branch2 3a3ce06] bio.txt is created
- 1 file changed, 1 insertion(+)
- create mode 100644 bio.txt
-
 4) Try these commands, stash, reset soft, reset hard, diff, branch -d & -D - push each branch to the remote
 
 Diff>>>
@@ -273,24 +202,6 @@ dell@dell-Latitude-3440:~/GitAssignment1$ git branch -D branch1
 Deleted branch branch1 (was 5760183).
 dell@dell-Latitude-3440:~/GitAssignment1$ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 dell@dell-Latitude-3440:~/GitAssignment1$ git branch
 * branch2
   master
@@ -331,6 +242,5 @@ remote:      https://github.com/KunalRathod-Josh/GitAssignment1/pull/new/master
 remote: 
 To https://github.com/KunalRathod-Josh/GitAssignment1.git
  * [new branch]      master -> master
-
 
 
