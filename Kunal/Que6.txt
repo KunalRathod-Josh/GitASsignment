@@ -1,0 +1,8 @@
+Q6. How to un-stage changes from the staged area. write command for it.
+
+git reset HEAD bio.txt
+
+This removes the file from staging area but any changes in the file are still there
+
+
+

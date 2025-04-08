@@ -1,0 +1,28 @@
+Q2. How to set multiple remote repositories for the same project? Explain the use case. you should have a working demo of it.
+
+Step 1 - Create a Local Project
+
+mkdir MultiRepo
+cd MultiRepo
+echo "# Multi Remote Demo" > README.md
+git add .
+git commit -m "Initial commit"
+
+Step 2 - Add first github remote - origin
+
+git remote add origin https://github.com/KunalRathod-Josh/MultiRepo1.git
+
+Step 3 - Add second github remote - backup
+
+git remote add backup https://github.com/KunalRathod-Josh/MultiRepo2.git
+
+Step 4 - Verify remotes
+
+git remote -v
+
+Step 5 - Push code 
+
+git push origin master
+git push backup master
+
+

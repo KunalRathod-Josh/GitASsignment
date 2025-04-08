@@ -1,0 +1,23 @@
+Q3. How to combine two commits into one commit? For Example, you have 4 different commits C1, C2, C3, and  C4, and you to combine C2 and C3 into one single commit. 
+
+Lets suppose we have following commits,
+C1 commit
+C2 commit
+C3 commit
+C4 commit
+
+Step 1 - Start rebase
+
+git rebase -i HEAD~3
+
+Step 2 - Mark pick and squash in editor
+
+pick 80b80d7 C2 commit
+squash 0174b8f C3 commit
+pick a3100f7 C4 commit
+
+Step 3 - Commit amend with message
+
+git commit --amend -m "C2 and C3 combined"
+
+

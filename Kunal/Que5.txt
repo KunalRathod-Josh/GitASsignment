@@ -1,0 +1,18 @@
+Q5. Difference between --force push and --force-with-lease, You have to show the use of both, also you have to show in what scenario --force-with-lease is used.
+
+1. git push --force
+
+It replace the remote branch with my current version
+
+git push origin main --force
+
+2. git push --force-with-lease
+
+It only pushes if no one else has updated the remote branch since you last fetched it.
+If someone pushed in that time git will not allowed.
+
+git push origin main --force-with-lease
+
+
+
+
